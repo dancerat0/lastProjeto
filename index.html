@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body onload="iniciar()">
+    <div class="container mt-5">
+        <h1>Movie Manager</h1>
+        <div class="input-group mb-3">
+            <input type="text" id="movieSearch" class="form-control" placeholder="Search Movie by Title">
+            <button class="btn btn-primary" onclick="importarFilmes()">Import Movie</button>
+        </div>
+        <div class="input-group mb-3">
+            <button class="btn btn-danger" onClick="limparBanco()">Clear all data</button>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Genre</th>
+                    <th>Poster</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabela"></tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="modalAdicionarFilme" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" id="modalForm">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="modalTitleAluno">Adicionar Aluno</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="movieTitle">Title</label>
+                        <input type="text" class="form-control" id="movieTitle" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="movieYear">Year</label>
+                        <input type="text" class="form-control" id="movieYear">
+                    </div>
+                    <div class="form-group">
+                        <label for="movieGenre">Genre</label>
+                        <input type="text" class="form-control" id="movieGenre">
+                    </div>
+                    <div class="form-group">
+                        <label for="moviePoster">Poster</label>
+                        <input type="text" class="form-control" id="moviePoster">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="adicionaFilme()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <h1>Gerenciamento de Filmes</h1>
+
+        <button class="btn btn-info" onclick="listarLogs()">Ver Logs</button>
+
+        <table class="table table-striped mt-3" id="tabelaLogs">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data e Hora</th>
+                    <th>Número de Registros</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
